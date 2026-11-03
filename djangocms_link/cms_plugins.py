@@ -19,6 +19,7 @@ class LinkPlugin(CMSPluginBase):
         (None, {
             'fields': (
                 'name',
+                'title',
                 ('external_link', 'internal_link'),
             )
         }),

@@ -267,5 +267,30 @@ class AbstractLink(CMSPlugin):
 
 class Link(AbstractLink):
 
+    title = models.CharField(
+        verbose_name=_('Link title'),
+        max_length=250,
+        blank=True,
+        null=True,
+        help_text=_('Shown as the link\'s title attribute. If empty, '
+                    '"Learn more about <page title>" is used for internal links, '
+                    '"Go to external link" for external links, "Call <phone>" for phone links '
+                    'and "Write to <email>" for email links.'),
+    )
+
     class Meta:
         abstract = False
+
+    def get_link_title(self):
+        if self.title:
+            return self.title
+        # internal_link takes precedence over external_link, same as get_link()
+        if self.internal_link_id:
+            return '{} {}'.format(gettext('Learn more about'), self.internal_link.get_title())
+        if self.external_link:
+            return gettext('Go to external link')
+        if self.phone:
+            return gettext('Call %(phone)s') % {'phone': self.phone}
+        if self.mailto:
+            return gettext('Write to %(email)s') % {'email': self.mailto}
+        return ''
