@@ -274,7 +274,7 @@ class Link(AbstractLink):
         null=True,
         help_text=_('Shown as the link\'s title attribute. If empty, '
                     '"Learn more about <page title>" is used for internal links, '
-                    '"Go to external link" for external links, "Call <phone>" for phone links '
+                    '"Go to external link <url>" for external links, "Call <phone>" for phone links '
                     'and "Write to <email>" for email links.'),
     )
 
@@ -288,7 +288,7 @@ class Link(AbstractLink):
         if self.internal_link_id:
             return '{} {}'.format(gettext('Learn more about'), self.internal_link.get_title())
         if self.external_link:
-            return gettext('Go to external link')
+            return gettext('Go to external link %(url)s') % {'url': self.external_link}
         if self.phone:
             return gettext('Call %(phone)s') % {'phone': self.phone}
         if self.mailto:

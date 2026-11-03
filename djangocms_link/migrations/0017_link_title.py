@@ -13,7 +13,7 @@ class Migration(migrations.Migration):
             name='title',
             field=models.CharField(
                 blank=True,
-                help_text='Shown as the link\'s title attribute. If empty, "Learn more about <page title>" is used for internal links, "Go to external link" for external links, "Call <phone>" for phone links and "Write to <email>" for email links.',
+                help_text='Shown as the link\'s title attribute. If empty, "Learn more about <page title>" is used for internal links, "Go to external link <url>" for external links, "Call <phone>" for phone links and "Write to <email>" for email links.',
                 max_length=250,
                 null=True,
                 verbose_name='Link title',
