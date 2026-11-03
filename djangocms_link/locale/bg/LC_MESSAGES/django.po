@@ -128,3 +128,21 @@ msgstr ""
 
 #~ msgid "At least one link is required."
 #~ msgstr ""
+
+msgid "Link title"
+msgstr "Заглавие на линка"
+
+msgid ""
+"Shown as the link's title attribute. If empty, \"Learn more about <page "
+"title>\" is used for internal links, \"Go to external link <url>\" for "
+"external links, \"Call <phone>\" for phone links and \"Write to <email>\" for "
+"email links."
+msgstr ""
+"Показва се като title атрибут на линка. Ако е празно, за вътрешни линкове "
+"се използва „Разберете повече за <заглавие на страницата>“, за външни – "
+"„Към външен линк <адрес>“, за телефон – „Обадете се на <телефон>“, а за "
+"имейл – „Пишете на <имейл>“."
+
+#, python-format
+msgid "Go to external link %(url)s"
+msgstr "Към външен линк %(url)s"
